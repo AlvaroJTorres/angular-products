@@ -1,0 +1,121 @@
+<div>
+  <div class="submit-form">
+    @if (!submitted) {
+    <div class="form-group">
+      <label for="handle">Handle</label>
+      <input
+        type="text"
+        class="form-control"
+        id="handle"
+        required
+        [(ngModel)]="product.handle"
+        name="handle"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="product.title"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="product.description"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="sku">SKU</label>
+      <input
+        type="text"
+        class="form-control"
+        id="sku"
+        required
+        [(ngModel)]="product.sku"
+        name="sku"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="grams">Grams</label>
+      <input
+        type="text"
+        class="form-control"
+        id="grams"
+        required
+        [(ngModel)]="product.grams"
+        name="grams"
+        type="number"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Stock</label>
+      <input
+        type="text"
+        class="form-control"
+        id="stock"
+        required
+        [(ngModel)]="product.stock"
+        name="stock"
+        type="number"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        type="text"
+        class="form-control"
+        id="price"
+        required
+        [(ngModel)]="product.price"
+        name="price"
+        type="number"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="compare_price">Compare Price</label>
+      <input
+        type="text"
+        class="form-control"
+        id="compare_price"
+        required
+        [(ngModel)]="product.compare_price"
+        name="compare_price"
+        type="number"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="barcode">Barcode</label>
+      <input
+        type="text"
+        class="form-control"
+        id="barcode"
+        required
+        [(ngModel)]="product.barcode"
+        name="barcode"
+      />
+    </div>
+
+    <button (click)="saveProduct()" class="btn btn-success">Submit</button>
+    } @else {
+    <h4>Product was submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newProduct()">Add</button>
+    }
+  </div>
+</div>

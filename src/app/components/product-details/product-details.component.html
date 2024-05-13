@@ -1,0 +1,145 @@
+@if (viewMode){
+  @if (currentProduct.id){
+  <h4>Product</h4>
+  <div>
+    <label><strong>Title:</strong></label> {{ currentProduct.title }}
+  </div>
+  <div>
+    <label><strong>Description:</strong></label>
+    {{ currentProduct.description }}
+  </div>
+
+  <a class="badge badge-warning" routerLink="/products/{{ currentProduct.id }}">
+    Edit
+  </a>
+  } @else {<p>Please click on a Tutorial...</p>}
+} @else {
+  @if (currentProduct.id) {
+  <div class="edit-form">
+    <h4>Product</h4>
+    <form>
+      <div class="form-group">
+        <label for="handle">Handle</label>
+        <input
+          type="text"
+          class="form-control"
+          id="handle"
+          required
+          [(ngModel)]="currentProduct.handle"
+          name="handle"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentProduct.title"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentProduct.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="sku">SKU</label>
+        <input
+          type="text"
+          class="form-control"
+          id="sku"
+          required
+          [(ngModel)]="currentProduct.sku"
+          name="sku"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="grams">Grams</label>
+        <input
+          type="text"
+          class="form-control"
+          id="grams"
+          required
+          [(ngModel)]="currentProduct.grams"
+          name="grams"
+          type="number"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input
+          type="text"
+          class="form-control"
+          id="stock"
+          required
+          [(ngModel)]="currentProduct.stock"
+          name="stock"
+          type="number"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          id="price"
+          required
+          [(ngModel)]="currentProduct.price"
+          name="price"
+          type="number"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="compare_price">Compare Price</label>
+        <input
+          type="text"
+          class="form-control"
+          id="compare_price"
+          required
+          [(ngModel)]="currentProduct.compare_price"
+          name="compare_price"
+          type="number"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="barcode">Barcode</label>
+        <input
+          type="text"
+          class="form-control"
+          id="barcode"
+          required
+          [(ngModel)]="currentProduct.barcode"
+          name="barcode"
+        />
+      </div>
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteProduct()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateProduct()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  } @else {<p>Cannot access this Product...</p>}
+}
