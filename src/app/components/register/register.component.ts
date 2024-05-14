@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(): void {
     const { name, username, email, password } = this.form
@@ -32,11 +33,20 @@ export class RegisterComponent {
           console.log(data)
           this.isSuccessful = true
           this.isSignUpFailed = false
+          this.router.navigate(['/products']).then(() => this.reloadPage());
         },
         error: (e) => {
           this.errorMessage = e.error.message
           this.isSignUpFailed = true
         }
       })
+  }
+
+  goToLogin(): void {
+    this.router.navigate(['/login'])
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 }
