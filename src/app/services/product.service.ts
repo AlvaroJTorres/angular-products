@@ -12,7 +12,8 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  t = ''
+  // t = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE1NjM4MDI1LCJleHAiOjE3MTYyNDI4MjV9.SAEhJg4Hai778nJxEwpYvlD2AUGk23GMbgRL3tXV3CQ'
+  t = window.sessionStorage.getItem('auth-user')
 
   headersObject = {'Authorization': "Bearer "+ this.t}
 
@@ -21,18 +22,18 @@ export class ProductService {
   }
 
   get(id: any): Observable<Product> {
-    return this.http.get<Product>(`${baseUrl}/${id}`);
+    return this.http.get<Product>(`${baseUrl}/${id}`, {headers: this.headersObject});
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+    return this.http.post(baseUrl, data, {headers: this.headersObject});
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.patch(`${baseUrl}/${id}`, data);
+    return this.http.patch(`${baseUrl}/${id}`, data, {headers: this.headersObject});
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${baseUrl}/${id}`, {headers: this.headersObject});
   }
 }

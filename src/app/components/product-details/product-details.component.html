@@ -5,14 +5,34 @@
     <label><strong>Title:</strong></label> {{ currentProduct.title }}
   </div>
   <div>
-    <label><strong>Description:</strong></label>
-    {{ currentProduct.description }}
+    <label>Handle:</label> {{ currentProduct.handle }}
+  </div>
+  <div>
+    <div [innerHTML]=currentProduct.description></div>
+  </div>
+  <div>
+    <label>SKU:</label> {{ currentProduct.sku }}
+  </div>
+  <div>
+    <label>Grams:</label> {{ currentProduct.grams }}
+  </div>
+  <div>
+    <label>Stock:</label> {{ currentProduct.stock }}
+  </div>
+  <div>
+    <label>Price:</label> {{ currentProduct.price }}
+  </div>
+  <div>
+    <label>Compare Price:</label> {{ currentProduct.compare_price }}
+  </div>
+  <div>
+    <label>barcode:</label> {{ currentProduct.barcode }}
   </div>
 
   <a class="badge badge-warning" routerLink="/products/{{ currentProduct.id }}">
     Edit
   </a>
-  } @else {<p>Please click on a Tutorial...</p>}
+  } @else {<p>Please click on a Product from the list...</p>}
 } @else {
   @if (currentProduct.id) {
   <div class="edit-form">

@@ -1,13 +1,20 @@
 <div>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">bezKoder</a>
+    <a href="#" class="navbar-brand">Products Site</a>
     <div class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a routerLink="tutorials" class="nav-link">Tutorials</a>
+        <a routerLink="products" class="nav-link">Producs</a>
       </li>
       <li class="nav-item">
         <a routerLink="add" class="nav-link">Add</a>
       </li>
+      @if (isLoggedIn) {
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href class="nav-link" (click)="logout()">LogOut</a>
+          </li>
+        </ul>
+      }
     </div>
   </nav>
 

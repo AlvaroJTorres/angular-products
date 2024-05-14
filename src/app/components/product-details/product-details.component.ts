@@ -69,7 +69,7 @@ export class ProductDetailsComponent implements OnInit {
         next: (res) => {
           console.log(res)
           this.message = res.message ? res.message : 'This product was deleted successfully!'
-          this.router.navigate(['/tutorials']);
+          this.router.navigate(['/products']);
         }, error: (e) => console.error(e)
       })
   }
