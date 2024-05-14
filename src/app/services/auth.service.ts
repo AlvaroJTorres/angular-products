@@ -39,6 +39,18 @@ export class AuthService {
     )
   }
 
+  changePassword(username: string, new_password: string, confirmed_password: string): Observable<any> {
+    return this.http.patch(
+      AUTH_API + '/change-password',
+      {
+        username,
+        new_password,
+        confirmed_password
+      },
+      httpOptions
+    )
+  }
+
   logout(): Observable<any> {
     return this.http.post(AUTH_API + '/sign-out', { }, httpOptions)
   }
