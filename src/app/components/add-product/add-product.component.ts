@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
@@ -22,7 +23,7 @@ export class AddProductComponent {
   }
   submitted = false
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private location: Location) { }
 
   saveProduct(): void {
     const data = {
@@ -62,4 +63,7 @@ export class AddProductComponent {
     }
   }
 
+  goBack(): void {
+    this.location.back()
+  }
 }

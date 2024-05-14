@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
@@ -29,7 +30,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -72,6 +74,10 @@ export class ProductDetailsComponent implements OnInit {
           this.router.navigate(['/products']);
         }, error: (e) => console.error(e)
       })
+  }
+
+  goBack(): void {
+    this.location.back()
   }
 
 }
