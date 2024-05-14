@@ -46,6 +46,10 @@ export class RegisterComponent {
     this.router.navigate(['/login'])
   }
 
+  goToChangePassword(): void {
+    this.router.navigate(['/change-password'])
+  }
+
   reloadPage(): void {
     window.location.reload();
   }

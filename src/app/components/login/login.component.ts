@@ -51,6 +51,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register'])
   }
 
+  goToChangePassword(): void {
+    this.router.navigate(['/change-password'])
+  }
+
   reloadPage(): void {
     window.location.reload();
   }
