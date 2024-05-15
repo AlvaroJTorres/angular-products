@@ -11,6 +11,11 @@ cd angular-products
 npm install
 ```
 
+- Add a .env file in the project root with the localhost url used in the API
+```
+API_URL={url here}
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
