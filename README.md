@@ -1,6 +1,12 @@
 # AngularProducts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+
+This project also requires Typescript, if you don't have it, you can install it by 
+
+```
+npm install typescript --save-dev
+```
 
 # Getting started
 - Clone the repository
