@@ -2,8 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'http://localhost:8080/api'
-
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 }
@@ -17,7 +15,7 @@ export class AuthService {
 
   login(username:string, password: string): Observable<any> {
     return this.http.post(
-      AUTH_API + '/sign-in',
+      process.env['API_URL'] + '/sign-in',
       {
         username,
         password
@@ -28,7 +26,7 @@ export class AuthService {
 
   register(name: string, username: string, email: string, password: string): Observable<any> {
     return this.http.post(
-      AUTH_API + '/sign-up',
+      process.env['API_URL'] + '/sign-up',
       {
         name,
         username,
@@ -41,7 +39,7 @@ export class AuthService {
 
   changePassword(username: string, new_password: string, confirmed_password: string): Observable<any> {
     return this.http.patch(
-      AUTH_API + '/change-password',
+      process.env['API_URL'] + '/change-password',
       {
         username,
         new_password,
@@ -52,6 +50,6 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    return this.http.post(AUTH_API + '/sign-out', { }, httpOptions)
+    return this.http.post(process.env['API_URL'] + '/sign-out', { }, httpOptions)
   }
 }
